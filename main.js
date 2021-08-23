@@ -1,24 +1,24 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message2: 'Hello Vue.js!',
     message: '',
     messageWas: ''
   },
   methods: {
-    reverseMessage: function () {
-      this.message2 = this.message2.split('').reverse().join('')
+    validateInput: function () {
+      return this.message.length > 0
     },
     sendMessage: function () {
-      d3.json('https://postman-echo.com/get').then((data) => {
-        console.log(data);
-      })
-      // axios
-      //   .get('https://postman-echo.com/get', { crossdomain: true })
-      //   .then(response => (this.messageWas = response))
-      //   .catch(err => console.log(err))
-      // this.messageWas = this.message
-      this.message = ''
+      if (this.validateInput()) {
+        axios
+          .get(`http://34.101.171.51:5000/?msg=${this.message}`, { crossdomain: true })
+          .then(response => (this.messageWas = response.data))
+          .catch(err => console.log(err))
+        this.messageWas = this.message
+        this.message = ''
+      } else {
+        console.log("input name and text")
+      }
     }
 
   }

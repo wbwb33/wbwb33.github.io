@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3-fetch@3"></script>
@@ -13,9 +16,30 @@
       <button v-on:click="sendMessage" class="btn-search"><i class="far fa-paper-plane"></i></button>
       <input v-model="message" type="text" class="input-search" placeholder="Type then Click ->">
     </div><br>
-    <div class="result-box">{{ messageWas }}</div>
-    <p>{{ message2 }}</p>
-    <button v-on:click="reverseMessage">Reverse Message</button>
+    <div v-if='messageWas' class="result-box">{{ messageWas }}</div>
+    <br>
+    <details>
+      <summary style="color: #fff;">Guide</summary>
+      <pre
+        class="prettyprint prettyprinted details-box"><span class="pln">POS tag list</span><span class="pun">:</span><span class="pln">
+
+        UKW	Unknown word
+        CC	Coordinating conjunction
+        CD	Cardinal number
+        DT	Determiner
+        IN	Preposition or subordinating conjunction
+        JJ	Adjective
+        MD	Modal
+        NN	Noun
+        NNP	Proper noun
+        PRP	Pronoun
+        QT	Quantifier
+        RB	Adverb
+        SYM	Symbol, including all types of punctuation
+        UH	Interjection
+        VB	Verb
+        WH	Wh-word, such as the equivalent of what
+    </details>
   </div>
 
   <script src="main.js"></script>

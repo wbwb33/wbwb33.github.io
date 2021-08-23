@@ -13,6 +13,13 @@ body{
   font-family: 'Lato' !important;
   flex-direction: column;
 }
+#app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .search-box{
   width: fit-content;
   height: fit-content;
@@ -71,6 +78,14 @@ body{
 .result-box {
   background: #fff;
   font: 400 14px "Calibri", "Arial";
+  padding: 20px;
+  border-radius: 5px;
+  /* visibility: hidden; */
+}
+
+.details-box {
+  background: #fff;
+  /* font: 400 14px "Calibri", "Arial"; */
   padding: 20px;
   border-radius: 5px;
 }
